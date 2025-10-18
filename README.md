@@ -1,0 +1,2 @@
+# niriwm-nix
+nixos-niriwm

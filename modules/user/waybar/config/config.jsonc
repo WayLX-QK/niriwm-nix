@@ -1,0 +1,32 @@
+{
+    "layer": "bottom",
+    "position": "top",
+    "margin": "5px",
+    "height": 28,
+    "include": [
+        "~/.config/waybar/modules/battery.jsonc",
+        "~/.config/waybar/modules/clock.jsonc",
+        "~/.config/waybar/modules/cpu.jsonc",
+        "~/.config/waybar/modules/disk.jsonc",
+        "~/.config/waybar/modules/language.jsonc",
+        "~/.config/waybar/modules/memory.jsonc",
+        "~/.config/waybar/modules/network.jsonc",
+        "~/.config/waybar/modules/wireplumber.jsonc",
+        "~/.config/waybar/modules/workspaces.jsonc"
+    ],
+    "modules-left": [
+        "cpu",
+        "memory",
+        "disk",
+        "network"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "wireplumber",
+        "custom/battery",
+        "hyprland/language",
+        "clock"
+    ]
+}
