@@ -3,15 +3,18 @@
   users.users.${userSettings.username} = {
     isNormalUser = true;
     description = userSettings.name;
-    extraGroups = [ "networkmanager" "wheel" "adbusers" "docker" ];# bluetooth
+    extraGroups = [ "networkmanager" "wheel" "adbusers" "docker" "libvirtd" ];# bluetooth
     packages = with pkgs; [
-      firefox
+      firefox-esr
       obs-studio
       # google-chrome
-      ungoogled-chromium
+      # ungoogled-chromium
+      qutebrowser
       prismlauncher
       localsend
-      vlc
+      imv
+      mpv
+      #vlc
       fluffychat
       
       zip
@@ -20,7 +23,6 @@
       p7zip
       nmap
 
-      quickshell
       ddcutil
       wl-clipboard
       gpu-screen-recorder 
@@ -29,7 +31,6 @@
       matugen
       cava 
       wlsunset 
-      xdg-desktop-portal
       bluez
 
       tuigreet
@@ -43,6 +44,10 @@
       neovim
       btop
       fastfetch
+      
+      s-tui
+      stress
+      dmidecode
 
       gcc
       gdb

@@ -83,9 +83,9 @@ layer-rule {
     place-within-backdrop true
 }
 
-spawn-at-startup "qs" "-c" "noctalia-shell"
+// spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "fcitx5" "-u" "classicui" "&"
-spawn-at-startup "wpaperd"
+// spawn-at-startup "wpaperd"
 
 //spawn-at-startup "/usr/bin/mate-polkit"
 //spawn-at-startup "pikabar"
@@ -109,17 +109,6 @@ environment {
      _JAVA_AWT_WM_NONREPARENTING "1"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
     QT_QPA_PLATFORMTHEME "qt6ct"
-    //nv GSK_RENDERER "ngl"
-    //nv NVD_BACKEND "direct"
-    //nv LIBVA_DRIVER_NAME "nvidia"
-    //nv GBM_BACKEND "nvidia-drm"
-    //nv VDPAU_DRIVER "nvidia"
-    //nv __GLX_VENDOR_LIBRARY_NAME "nvidia"
-    //nv __GL_VRR_ALLOWED "1"
-    //nv __GL_GSYNC_ALLOWED "1"
-    //nv __GL_SHADER_DISK_CACHE_SKIP_CLEANUP "1"
-    //nv __GL_YIELD "USLEEP"
-    //nv __EGL_VENDOR_LIBRARY_FILENAMES "/usr/share/glvnd/egl_vendor.d/10_nvidia.json"
 }
 
 prefer-no-csd
@@ -176,11 +165,11 @@ binds {
     //Mod+Return { spawn "kitty"; }
     //Mod+D { spawn "pikabar-launcher"; }
     Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
-    Mod+Space hotkey-overlay-title="Run an Application: launcher" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+Space hotkey-overlay-title="Run an Application: launcher" { spawn "dms" "ipc" "call" "widget" "openWith" "launcherButton" "apps"; }
     //Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: lock" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "toggle"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen: lock" { spawn "dms" "ipc" "call" "lock" "lock"; }
     //Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
-    Super+Alt+V hotkey-overlay-title="clipboard" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
+    Super+Alt+V hotkey-overlay-title="clipboard" { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
     //Mod+C { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "calculator"; }
 
     //XF86AudioRaiseVolume allow-when-locked=true { spawn "pamixer" "-i" "5"; }

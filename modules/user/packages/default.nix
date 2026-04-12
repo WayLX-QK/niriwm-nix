@@ -4,5 +4,7 @@
     # pkgs.material-symbols
     # pkgs.material-icons
     pkgs.jetbrains-mono
+    pkgs.roboto
+    pkgs.inter
   ];
 }

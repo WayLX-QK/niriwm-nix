@@ -10,20 +10,36 @@
     QS_ICON_THEME = "Papirus";
   };
   
+  
   # programs.alacritty.enable = true;
-  programs.fuzzel.enable = true;
-  programs.swaylock.enable = true;
+  # programs.fuzzel.enable = true;
+  # programs.swaylock.enable = true;
   # programs.waybar.enable = true;
-  services.mako.enable = true;
-  services.swayidle.enable = true;
+  # services.mako.enable = true;
+  # services.swayidle.enable = true;
   services.polkit-gnome.enable = true;
-  home.packages = with pkgs; [
-    # swaybg # wallpaper
-    wpaperd
+  #home.packages = with pkgs; [
+  #  # swaybg # wallpaper
+  #  wpaperd
+  #];
 
-    papirus-icon-theme
-    gnome-themes-extra
-  ];
+  gtk = {
+    enable = true;
+    gtk4.theme = config.gtk.theme; 
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
+    };
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+    cursorTheme = {
+      name = "Bibata-Modern-Ice";
+      package = pkgs.bibata-cursors;
+      size = 24;
+    };
+  };
 
 
   home.file.".config/niri" = {
