@@ -26,6 +26,8 @@
     };
 
     pkgs = nixpkgs.legacyPackages.${systemSettings.system};
+
+    overlays = [ (import ./overlays/fcitx5) ];
   in {
     nixosConfigurations.${systemSettings.hostname} = nixpkgs.lib.nixosSystem {
       system = systemSettings.system;
@@ -43,7 +45,7 @@
         }
       ];
       specialArgs = {
-        inherit inputs systemSettings userSettings;
+        inherit inputs systemSettings userSettings overlays;
       };
     };
   };

@@ -8,5 +8,6 @@
     recursive = true;
     source = ./config;
     target = ".config/foot";
+    force = true;
   };
 }

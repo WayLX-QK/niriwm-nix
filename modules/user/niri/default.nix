@@ -49,6 +49,7 @@
   };
 
   imports = [
+    ./../fcitx5/default.nix
     ./../foot/default.nix
     ./../packages/default.nix
   ];
