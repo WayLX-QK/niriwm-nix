@@ -79,9 +79,14 @@ layout {
 }
 
 layer-rule {
-    match namespace="^swww-daemon$"
+    match namespace="dms:blurwallpaper"
     place-within-backdrop true
 }
+
+// layer-rule {
+//     match namespace="^swww-daemon$"
+//     place-within-backdrop true
+// }
 
 // spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "fcitx5" "-u" "classicui" "&"
@@ -126,6 +131,19 @@ animations {
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
     // slowdown 3.0
+}
+
+recent-windows {
+    highlight {
+        corner-radius 12
+    }
+}
+
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+    tiled-state true
+    draw-border-with-background false
 }
 
 /-window-rule {
