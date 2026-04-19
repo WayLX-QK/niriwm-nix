@@ -5,7 +5,6 @@
     settings = {
       default_session = {
         command = "${pkgs.tuigreet}/bin/tuigreet --remember  --asterisks --no-xsession-wrapper --cmd niri-session";
-        # user = "greeter";
       };
     };
   };

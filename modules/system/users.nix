@@ -42,6 +42,7 @@
       
       inetutils
       neovim
+      helix
       yazi
       btop
       fastfetch
