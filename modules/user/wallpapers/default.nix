@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
-  home.file."wallpapers" = {
+  home.file."Pictures/wallpapers" = {
     recursive = true;
     source = ./images;
-    target = "wallpapers";
+    target = "Pictures/wallpapers";
   };
 }
