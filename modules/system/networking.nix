@@ -1,16 +1,15 @@
-{ config, lib, pkgs, systemSettings, ... }:
+# 通用网络配置：hostName 与防火墙端口来自 settings。
+{
+  settings,
+  ...
+}:
 {
   networking = {
-    hostName = systemSettings.hostname;
+    hostName = settings.hostname;
     networkmanager.enable = true;
-  };
-  
-  networking.firewall = {
-    enable = true;
-    # allowedTCPPorts = [ 8080 443 ];
-    # allowedUDPPortRanges = [
-    #  { from = 4000; to = 4007; }
-    #  { from = 8000; to = 8010; }
-    # ];
+
+    firewall = {
+      enable = true;
+    } // (settings.firewall or { });
   };
 }

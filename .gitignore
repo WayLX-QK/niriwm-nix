@@ -1,1 +1,10 @@
-hosts/W550/hardware-configuration.nix
+# 每台主机私有的硬件配置：含磁盘 UUID / swap 等硬件指纹，不提交。
+hosts/*/hardware-configuration.nix
+
+# 本地 age 私钥 / 临时明文 secret，不提交。
+secrets/*.key
+secrets/*.plain.yaml
+
+# nixos-rebuild build 产生的 result 软链。
+result
+result-*

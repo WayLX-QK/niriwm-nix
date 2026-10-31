@@ -1,6 +1,8 @@
-{ config, lib, pkgs, ... }:
 {
-  # Enable sound with pipewire.
+  ...
+}:
+{
+  # PipeWire 音频；禁用 PulseAudio 服务端。
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -8,13 +10,6 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    wireplumber = {
-      enable = true;
-    };
+    wireplumber.enable = true;
   };
-
-  hardware.bluetooth.enable = true;
-  # dbus.enable = true;
-  # dbus.packages = with pkgs; [ bluez ];
 }
-

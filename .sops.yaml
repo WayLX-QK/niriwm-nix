@@ -1,0 +1,10 @@
+keys:
+  - &bt_age age1f7yg64hke6lyndcs8j9k9qtpcmq79lu49axcll2zkgq0cf2935cq6fwq0f
+  - &w5_age age1rw7ag8qvpahkfmpryagw0yyuzk24tc7lhrcqauardv22n9dyjs2shkh2ld
+
+creation_rules:
+  - path_regex: secrets/sing-box\.yaml$
+    key_groups:
+      - age:
+          - *bt_age
+          - *w5_age

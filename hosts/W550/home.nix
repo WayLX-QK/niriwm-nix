@@ -1,16 +1,11 @@
-{ inputs, pkgs, systemSettings, userSettings, ... }: {
+{
+  ...
+}:
+{
   imports = [
-    ./../../modules/user/niri/default.nix
-    # ./../../modules/user/packages.nix
+    ../../modules/home/common.nix
+    ../../modules/home/input-method/fcitx5-rime/default.nix
+    ../../modules/home/niri-profile.nix
+    ./home-packages.nix
   ];
-
-  home = {
-    username = userSettings.username;
-    homeDirectory = "/home/"+userSettings.username;
-    stateVersion = systemSettings.version;
-  };
-
-  programs.home-manager.enable = true;
-
-  systemd.user.startServices = "sd-switch";
 }

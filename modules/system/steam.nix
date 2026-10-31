@@ -1,31 +1,28 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 {
   hardware.steam-hardware.enable = true;
+
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+    remotePlay.openFirewall = true; # Steam Remote Play
+    dedicatedServer.openFirewall = true; # Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Steam 局域网游戏传输
   };
 
-  # OpenGL and Vulkan configuration
-  hardware.graphics.enable = true;
-  hardware.graphics.extraPackages = with pkgs; [
-    vulkan-loader
-    vulkan-tools
-  ];
-
-  # Add system packages for VR support
+  # Steam / 游戏相关包；hardware.graphics 已移到 graphics.nix。
   environment.systemPackages = with pkgs; [
-    #openvr # Required for SteamVR
-    #libusb1 # Used for VR devices
+    # openvr # 原配置未启用，SteamVR 相关
+    # libusb1 # 原配置未启用，VR 设备相关
     usbutils
-    pkgs.libsndfile
-    # pkgs.xwayland
+    libsndfile
+    # xwayland # 原配置未启用
     gamescope
   ];
 
-  # # Udev rules for VR devices
+  # 原 VR udev 规则注释保留。
   # services.udev.packages = with pkgs; [
   #   openvr
   # ];
