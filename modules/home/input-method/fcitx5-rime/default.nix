@@ -17,9 +17,19 @@
     force = true;
   };
 
-  # 用户会话变量；XMODIFIERS/QT_PLUGIN_PATH 由系统级 input-method 提供。
+  # 用户会话变量；系统级 i18n.inputMethod 会设置 XMODIFIERS 和 QT_PLUGIN_PATH。
+  #
+  # 注意：当前 fcitx5.waylandFrontend = true，所以 NixOS 不会设置
+  # GTK_IM_MODULE/QT_IM_MODULE；Wayland 原生应用走 text-input 协议，
+  # XWayland 应用通过 XMODIFIERS/XIM 使用 fcitx5。
+  # 如果某个 XWayland 的 GTK/Qt 应用无法输入中文，再针对该应用设置
+  # GTK_IM_MODULE=fcitx / QT_IM_MODULE=fcitx，不要全局强加。
+  #
+  # 本项目只使用 fcitx5-rime（rime-ice），不使用 IBus；
+  # 不设置 GLFW_IM_MODULE=ibus：它只是 kitty 的 GLFW 分支使用的客户端协议名，
+  # 不是启用 IBus；上游 GLFW 3.4 使用 XMODIFIERS。
+  # 本项目不使用 kitty 的 IBus 客户端；W550 使用 foot + niri，BT-7274 使用 Plasma。
   home.sessionVariables = {
-    GLFW_IM_MODULE = "ibus";
     SDL_IM_MODULE = "fcitx";
   };
 }

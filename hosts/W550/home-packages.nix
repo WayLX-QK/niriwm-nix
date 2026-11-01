@@ -33,7 +33,7 @@
     wlsunset
     bluez
 
-    tuigreet
+    # tuigreet 由 modules/services/greetd.nix 的系统包提供，不在用户包重复安装。
 
     # alacritty
     # ghostty

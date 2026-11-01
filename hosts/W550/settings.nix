@@ -56,11 +56,19 @@
     PasswordAuthentication = false;
   };
 
-  # sing-box 的 secret 名称；两台主机当前共用同一份加密配置。
+  # sing-box 的本地代理端口与运行模式。
+  # 端口只在这里定义一次，modules/services/sing-box.nix 和 modules/system/nix.nix
+  # 都从这里读取，避免 8080 在多处硬编码。
+  #
+  # 重要：TUN + auto_route 是全局代理，会接管整台主机的流量。
+  # 本项目只要求 Nix 构建走代理，因此 tun 必须保持 false；
+  # 不要为了让 nixos-rebuild 走代理而打开 TUN。
+  #
+  # secret 名称已由 modules/services/sing-box.nix 提供默认值，
+  # 只有需要覆盖时才在这里写 serverSecret 等字段。
   singBox = {
-    serverSecret = "sing-box-naive-server";
-    serverNameSecret = "sing-box-naive-server-name";
-    usernameSecret = "sing-box-naive-username";
-    passwordSecret = "sing-box-naive-password";
+    httpPort = 8080;
+    socksPort = 1080;
+    tun = false;
   };
 }
